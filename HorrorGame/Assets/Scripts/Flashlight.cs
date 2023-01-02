@@ -19,22 +19,24 @@ public class Flashlight : MonoBehaviour
     void Update()
     {
         //Input works
+        //Turn ON
         if (Input.GetMouseButton(0) && LightOn == true && Wait)
         {      
             Light.SetActive(false);
             LightOn = false;
             Wait = false;
             StartCoroutine(FailSafe());
-            Debug.Log("light is off");
+            Enemy.PlayerLightOn = false;
         }
-
+        
+        //Turn OFF
         if (Input.GetMouseButton(0) && LightOn == false && Wait)
         {
             Light.SetActive(true);
             LightOn = true;
             Wait = false;
             StartCoroutine(FailSafe());
-            Debug.Log("light is on");
+            Enemy.PlayerLightOn = true;
         }
 
         

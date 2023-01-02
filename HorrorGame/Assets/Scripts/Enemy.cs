@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.AI;
+using Vector3 = UnityEngine.Vector3;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +12,15 @@ public class Enemy : MonoBehaviour
     public Transform player;
 
     public LayerMask whatIsGround, whatIsPlayer;
+
+    //Others var
+
+    public static bool PlayerLightOn;
+    public bool x2;//times 2
+    public bool d2;//divide2
+
+
+
 
     //Animations
 
@@ -27,14 +38,15 @@ public class Enemy : MonoBehaviour
     bool alreadyAttacked;
 
     //states
-    public float sightRange, attackRange;
+    public float sightRange;
+    public float attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
     private void Start ()
     {
         player = GameObject.Find("Fps Controller").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-       
+        x2= true;
     }
     
     private void Update ()
@@ -48,7 +60,24 @@ public class Enemy : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
-    }
+        if(PlayerLightOn && d2)
+        {
+            sightRange = sightRange * 2;
+            x2 = true;
+            d2= false;
+            
+        }
+
+        if (!PlayerLightOn && x2)
+        {
+            sightRange = sightRange / 2;
+            d2= true;
+            x2= false;
+            
+        }
+
+
+    }//Update
 
     private void Patroling()
     {
@@ -58,7 +87,7 @@ public class Enemy : MonoBehaviour
 
         if (walkpointset)
             agent.SetDestination(walkPoint);
-        
+
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
        
@@ -106,4 +135,9 @@ public class Enemy : MonoBehaviour
     {
         alreadyAttacked = false;
     }
-}
+
+ 
+  
+
+
+}//class
