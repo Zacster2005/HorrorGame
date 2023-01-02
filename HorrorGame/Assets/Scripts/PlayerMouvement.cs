@@ -16,7 +16,8 @@ public class PlayerMouvement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
-    bool CanWallRun;
+
+    bool isRunning;
 
     
 
@@ -32,8 +33,21 @@ public class PlayerMouvement : MonoBehaviour
     void Update()
     {
         
-        
-        if(controller.isGrounded)
+        if(!isRunning && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Speed = Speed * 2;
+            isRunning = true;
+        }
+
+        if (isRunning && Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Speed = Speed / 2;
+            isRunning = false;
+        }
+
+
+
+        if (controller.isGrounded)
         {
             isGrounded = true;
         }
