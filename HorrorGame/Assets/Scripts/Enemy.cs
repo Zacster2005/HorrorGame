@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Zombie : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent;
 
@@ -43,25 +43,10 @@ public class Zombie : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-
+        //Set AI state
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
-
-
-        if(isChasing == true)
-        {
-           
-        }
-
-
-
-
-
-
-
-
-
 
     }
 
