@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     //Animations
 
    
-    bool isChasing;
+
 
     //patroling
     public Vector3 walkPoint;
@@ -86,13 +86,19 @@ public class Enemy : MonoBehaviour
         if (walkpointset == false) SearchWalkPoint();
 
         if (walkpointset)
+        {
             agent.SetDestination(walkPoint);
+        }
+         
 
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
        
         if (distanceToWalkPoint.magnitude < 1f)
+        {
             walkpointset = false;
+        }
+            
        
     }
 
@@ -104,29 +110,30 @@ public class Enemy : MonoBehaviour
         walkPoint = new Vector3(transform.position.x + RandomX, transform.position.y,  transform.position.z + RandomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        {
             walkpointset = true;
+        }
+            
     }
 
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        isChasing = true;
+       
        
     } 
 
     private void AttackPlayer()
     {
-
-        
-;
-
-
         agent.SetDestination(transform.position);
         
         transform.LookAt(player);
 
+
+
         if (!alreadyAttacked)
-        { 
+        {
+            PlayerStats.Attacked();
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timebetweenAttacks);
         } 
