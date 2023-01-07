@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 629636265}
   - component: {fileID: 629636264}
   - component: {fileID: 629636263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1355,6 +1355,10 @@ PrefabInstance:
     - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
       propertyPath: m_Name
       value: Stairs (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2090,6 +2094,10 @@ PrefabInstance:
       value: Stairs (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2672,6 +2680,10 @@ PrefabInstance:
     - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
       propertyPath: m_Name
       value: Stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8502004180006974352, guid: 99b0c21d5c92aef409ceb63fd01cfeec, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4271,6 +4283,10 @@ PrefabInstance:
       value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 3298016642110927425, guid: cf1ebdfdc57377145827e232031b0efd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298016642110927425, guid: cf1ebdfdc57377145827e232031b0efd, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -4283,10 +4299,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2377230527413172654, guid: d7adfedb1c9c64644b059e077b339229, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07797297af77ef142806b9a9d37664a0, type: 2}
     - target: {fileID: 4827950941681849539, guid: d7adfedb1c9c64644b059e077b339229, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1045696148}
+    - target: {fileID: 4827950941681849539, guid: d7adfedb1c9c64644b059e077b339229, type: 3}
+      propertyPath: walkpointset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4939017983961396182, guid: d7adfedb1c9c64644b059e077b339229, type: 3}
       propertyPath: m_RootOrder
       value: 1

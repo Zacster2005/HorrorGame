@@ -48,8 +48,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.Find("Fps Controller").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        x2= true;
-        walkpointset = true;
+        x2= true;       
 
         Anim = GetComponent<Animator> ();
     }
@@ -100,10 +99,9 @@ public class Enemy : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
        
-        if (distanceToWalkPoint.magnitude < 1f)
-        {
+        if (distanceToWalkPoint.magnitude < 1f)       
             walkpointset = false;
-        }
+        
             
        
     }
@@ -115,10 +113,9 @@ public class Enemy : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + RandomX, transform.position.y,  transform.position.z + RandomZ);
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-        {
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))     
             walkpointset = true;
-        }
+        
             
     }
 
