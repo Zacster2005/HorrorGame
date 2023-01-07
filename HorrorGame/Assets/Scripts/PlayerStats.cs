@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 
     public int MaxHealth;
 
-    public int Batteries =0;
+    public static int Batteries =0;
 
     public static bool attack;
 

@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     public Transform player;
 
+    public Animator Anim;
+
     public LayerMask whatIsGround, whatIsPlayer;
 
     //Others var
@@ -24,7 +26,7 @@ public class Enemy : MonoBehaviour
 
     //Animations
 
-   
+    private string Walk = "Ghost For demoAction";
 
 
     //patroling
@@ -47,6 +49,9 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Fps Controller").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         x2= true;
+        walkpointset = true;
+
+        Anim = GetComponent<Animator> ();
     }
     
     private void Update ()
@@ -88,6 +93,7 @@ public class Enemy : MonoBehaviour
         if (walkpointset)
         {
             agent.SetDestination(walkPoint);
+            Anim.Play(Walk);
         }
          
 
@@ -119,8 +125,8 @@ public class Enemy : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-       
-       
+        Anim.Play(Walk);
+
     } 
 
     private void AttackPlayer()
