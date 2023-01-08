@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     //Animations
 
     private string Walk = "Ghost For demoAction";
-
+    private string BigWalk = "Layer0";
 
     //patroling
     public Vector3 walkPoint;
@@ -92,7 +92,17 @@ public class Enemy : MonoBehaviour
         if (walkpointset)
         {
             agent.SetDestination(walkPoint);
-            Anim.Play(Walk);
+            
+            if(gameObject.tag == "Ghost")
+            {
+                Anim.Play(Walk);
+            }
+           
+            if(gameObject.tag == "BigGuy")
+            {
+                Anim.Play(BigWalk);
+            }
+
         }
          
 
@@ -122,8 +132,16 @@ public class Enemy : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-        Anim.Play(Walk);
 
+        if (gameObject.tag == "Ghost")
+        {
+            Anim.Play(Walk);
+        }
+
+        if (gameObject.tag == "BigGuy")
+        {
+            Anim.Play(BigWalk);
+        }
     } 
 
     private void AttackPlayer()
