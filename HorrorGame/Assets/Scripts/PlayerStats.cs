@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PlayerStats : MonoBehaviour
 
     public static bool attack;
 
+    public Text HealthVal;
+
+    public static bool PlayerDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +26,19 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        HealthVal.text = Health.ToString();
+
         if(attack)
         {
             Health--;
             attack= false;
+        }
+
+        if(Health < 0)
+        {
+            Health= 0;
+            PlayerDead = true;
         }
 
 
